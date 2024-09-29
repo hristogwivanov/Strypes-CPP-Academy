@@ -2,11 +2,9 @@
 
 - най-голямото число
 
-  ```bash
-cat numbers.txt | sort -n | tail -1
+  ```bash cat numbers.txt | sort -n | tail -1
 
 
 - най-малкото число
 
-  ```bash
-cat numbers.txt | sort -n | head -1
+  ```bash cat numbers.txt | sort -n | head -1
