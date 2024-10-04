@@ -4,24 +4,47 @@
 using namespace std;
 
 void dec2bin(int number){
-    cout << "Binary: ";
-    int binary[32];
-    int index = 0; 
+    cout << "Двоично: ";
+    if (number < 0) {
+        cout << "-";
+        number = ~(-number) + 1;
+    }
 
-    if (number == 0){
-        cout << "0";
-    } else {
-        while (number > 0) {
-            binary[index++] = number % 2;
-            number /=2;
-        }
+    bool leading = true;
+    for (int i = sizeof(int) * 8 - 1; i >= 0; --i) {
+        int bit = (number >> i) & 1;
+        if (bit == 1) leading = false;
+        if (!leading) cout << bit;
+    }
 
-        for (int i = index - 1; i >= 0; i--){
-            cout << binary[i];
-        }
+    if(leading) cout << "0";
+    cout << endl;
+}
+
+void dec2oct(int number) {
+    cout << "Осмично: ";
+    if (number < 0) {
+        cout << "-";
+        number = -number;
+    }
+
+    if (number == 0) {
+        cout << "0" << endl;
+        return;
+    }
+
+    unsigned int octal[32];
+    int index = 0;
+
+    while(number > 0) {
+        octal[index++] = number & 7;
+        number >>= 3;
+    }
+
+    for (int i = index - 1; i >= 0; i--) {
+        cout << octal[i];
     }
     cout << endl;
-
 }
 
 int main(){
@@ -30,4 +53,8 @@ int main(){
     cin >> number;
     
     dec2bin(number);
+    dec2oct(number);
+    //dec2hex(number);
+
+    return 0;
 }
