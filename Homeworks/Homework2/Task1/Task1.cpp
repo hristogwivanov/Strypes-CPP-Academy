@@ -3,36 +3,43 @@
 
 using namespace std;
 
-void dec2bin(int number){
-    cout << "Двоично: ";
+int handleNegative(int number) {
     if (number < 0) {
         cout << "-";
-        number = ~(-number) + 1;
+        return -number;
+    }
+    return number;
+}
+
+void dec2bin(int number) {
+    cout << "Двоично: ";
+    
+    if (number == 0) {
+        cout << "0" << endl;
+        return;
     }
 
-    bool leading = true;
+    number = handleNegative(number);
+
+    bool leadingZero = true;
     for (int i = sizeof(int) * 8 - 1; i >= 0; --i) {
         int bit = (number >> i) & 1;
-        if (bit == 1) leading = false;
-        if (!leading) cout << bit;
+        if (bit == 1) leadingZero = false;
+        if (!leadingZero) cout << bit;
     }
 
-    if(leading) cout << "0";
     cout << endl;
 }
 
 void dec2oct(int number) {
     cout << "Осмично: ";
-    if (number < 0) {
-        cout << "-";
-        number = -number;
-    }
 
     if (number == 0) {
         cout << "0" << endl;
         return;
     }
 
+    number = handleNegative(number);
     unsigned int octal[32];
     int index = 0;
 
@@ -50,17 +57,13 @@ void dec2oct(int number) {
 void dec2hex(int number){
     cout << "Шестнайсетично: ";
 
-    if (number < 0) {
-        cout << "-";
-        number = -number;
-    }
-
     if (number == 0) {
         cout << "0" << endl;
         return;
     }
 
 
+    number = handleNegative(number);
     char hex[32];
     int index = 0;
 
