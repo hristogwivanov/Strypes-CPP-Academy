@@ -1,2 +1,2 @@
 # Strypes-CPP-Academy
-A repository for my homework and exercises.
+A repository for homework and exercises.
