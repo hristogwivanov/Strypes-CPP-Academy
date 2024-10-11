@@ -18,7 +18,7 @@ int main(void)
         if (std::cin.fail()){
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cerr << "Моля въведете число от 1 до 5!" << std::endl;
+            std::cerr << "Please type a number between 1 and 5!" << std::endl;
             continue;
         }
         if (option == 1)
@@ -40,7 +40,7 @@ int main(void)
         }
         else
         {
-            std::cerr << "Моля въведете число от 1 до 5!" << std::endl;
+            std::cerr << "Please type a number between 1 and 5!" << std::endl;
         }
     }
 }
