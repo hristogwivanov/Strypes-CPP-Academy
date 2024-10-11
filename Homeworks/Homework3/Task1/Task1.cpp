@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdint.h>
+#include <limits>
 
 int main(void)
 {
@@ -13,24 +14,33 @@ int main(void)
         std::cout << "4. Change attendance" << std::endl;
         std::cout << "5. Exit" << std::endl;
         std::cin >> option;
-        if (option == 1){
+
+        if (std::cin.fail()){
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cerr << "Моля въведете число от 1 до 5!" << std::endl;
+            continue;
+        }
+        if (option == 1)
+        {
             // to do
         }
-        else if (option == 2) 
+        else if (option == 2)
         {
-
         }
         else if (option == 3)
         {
-
         }
-        else if (option == 4) {
-
+        else if (option == 4)
+        {
         }
-        else if (option == 5) {
+        else if (option == 5)
+        {
             return 0;
-        } else {
-
+        }
+        else
+        {
+            std::cerr << "Моля въведете число от 1 до 5!" << std::endl;
         }
     }
 }
