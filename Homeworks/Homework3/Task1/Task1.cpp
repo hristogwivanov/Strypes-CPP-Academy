@@ -37,7 +37,6 @@ int main(void)
                 std::cin.clear();
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 std::cerr << "Invalid student number! Please enter a number between 1 and 64.\n";
-                pressEnterToContinue();
             } else {
                 attendance |= (uint64_t(1) << (student_number -1));
                 std::cout << "Attendance set for student " << student_number << ".\n";
@@ -53,7 +52,6 @@ int main(void)
                 std::cin.clear();
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 std::cerr << "Invalid student number! Please enter a number between 1 and 64.\n";
-                pressEnterToContinue();
             } else {
                 attendance &= ~(uint64_t(1) << (student_number -1));
                 std::cout << "Attendance cleared for student " << student_number << ".\n";
@@ -104,9 +102,22 @@ int main(void)
         }
         else if (option == 4)
         {
+            std::cout << "Enter student number (1-64) to change attendance status: ";
+            int student_number;
+            std::cin >> student_number;
+
+            if(std::cin.fail() || student_number <1 || student_number > 64) {
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                std::cerr << "Invalid student number! Please enter a number between 1 and 64.\n";
+            } else {
+                attendance ^= (uint64_t(1) << (student_number -1));
+                std::cout << "Attendance status changed for student " << student_number << ".\n";
+            }
         }
         else if (option == 5)
         {
+            std::cout << "Goodbye!\n";
             return 0;
         }
         else
