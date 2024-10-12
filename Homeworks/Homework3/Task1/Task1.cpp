@@ -14,7 +14,7 @@ int main(void)
     int option;
     while (1)
     {
-        std::cout << "1. Set attendamce" << std::endl;
+        std::cout << "1. Set attendance" << std::endl;
         std::cout << "2. Clear attendance" << std::endl;
         std::cout << "3. Attendance info " << std::endl;
         std::cout << "4. Change attendance" << std::endl;
@@ -70,6 +70,21 @@ int main(void)
                     pressEnterToContinue();
                 } else {
                     std::cout << "No students are present. \n";
+                    pressEnterToContinue();
+                }
+            } else if (sub_option == 2) {
+                if(~attendance){
+                    std::cout << "Absent students: ";
+                    for (int i = 1; i <= 64; ++i){
+                        if (!(attendance & (uint64_t(1) << (i-1)))){
+                            std::cout << i << " ";
+                        }
+                    }
+                    std::cout << std::endl;
+                    pressEnterToContinue();
+                }
+                else {
+                    std::cout << "No students are absent. \n";
                     pressEnterToContinue();
                 }
             }
