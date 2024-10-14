@@ -25,4 +25,12 @@ int main(int argc, char* argv[]){
         return 1;
     }
 
+    char op = argv[2][0];
+    if (argv[2][1] != '\0')
+    {
+        cerr << ("Невалиден оператор!") << endl;
+    }
+
+
+
 }
