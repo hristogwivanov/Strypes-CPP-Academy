@@ -43,12 +43,17 @@ int main(int argc, char* argv[]){
         case 'X':
             result = num1 * num2;
         case '/':
-            result = num1 / num2; 
             if (num2 == 0) {
                 cout << ("infinity") << endl;
                 return 0;
             }
-
+            result = num1 / num2; 
+            break;
+            default:
+                cerr << "Invalid operator!" << endl;
+                return 1;
     }
 
+    cout << "Result = " << fixed << setprecision(2) << result << endl;
+    return 0;
 }
