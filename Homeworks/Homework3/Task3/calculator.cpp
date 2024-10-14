@@ -31,6 +31,24 @@ int main(int argc, char* argv[]){
         cerr << ("Невалиден оператор!") << endl;
     }
 
+    double result; 
 
+    switch(op){
+        case '+': 
+            result = num1 + num2;
+            break;
+        case '-':
+            result = num1 - num2;
+        case 'x':
+        case 'X':
+            result = num1 * num2;
+        case '/':
+            result = num1 / num2; 
+            if (num2 == 0) {
+                cout << ("безкрайност") << endl;
+                return 0;
+            }
+
+    }
 
 }
