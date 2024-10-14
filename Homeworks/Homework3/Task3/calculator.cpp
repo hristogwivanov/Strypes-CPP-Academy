@@ -6,7 +6,7 @@ using namespace std;
 
 int main(int argc, char* argv[]){ 
     if (argc != 4) {
-        cerr << "Грешка - броят на аргументите тярбва да е точно 3!\n";
+        cerr << "Error - You must enter exactly 3 arguments!\n";
         return 1;
     }
 
@@ -15,20 +15,20 @@ int main(int argc, char* argv[]){
 
     double num1 = strtod(argv[1], &inputNum1);
     if (*inputNum1 != '\0'){
-        cerr << "Първият аргумент трябва да бъде цисло" << endl;
+        cerr << "The first argument has to be a number" << endl;
         return 1;
     }
 
     double num2 = strtod(argv[3], &inputNum2);
     if (*inputNum2 != '\0'){
-        cerr << "Вторият аргумент трябва да бъде число" << endl;
+        cerr << "The third argument has to be a number" << endl;
         return 1;
     }
 
     char op = argv[2][0];
     if (argv[2][1] != '\0')
     {
-        cerr << ("Невалиден оператор!") << endl;
+        cerr << ("Ivalid operator!") << endl;
     }
 
     double result; 
@@ -45,7 +45,7 @@ int main(int argc, char* argv[]){
         case '/':
             result = num1 / num2; 
             if (num2 == 0) {
-                cout << ("безкрайност") << endl;
+                cout << ("infinity") << endl;
                 return 0;
             }
 
