@@ -1,32 +1,32 @@
 #include <iostream>
 #include <string>
-#include <limits>
+#include <sstream>
 
 using namespace std;
 
-int main()
-{
+int main() {
     int choice;
-    cout << "Моля въведете в каква бройна система е входното число (2, 8, 10 или 16): ";
+    bool valid = false;
 
-    do
-    {
-        bool errorflag = 0;
+    while(!valid) {
+        cout << "Моля въведете в каква бройна система е входното число (2, 4, 8 или 16): " << endl;
+        string input;
+        getline(cin, input);
+        stringstream ss(input);
 
-        if (!(cin >> choice))
-        {
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Невалиден вход. Моля въведете число (2, 8, 10 или 16): ";
-            errorflag = 1;
-            continue;
+        if(ss >> choice) {
+            if(ss.eof()){
+                if(choice == 2 || choice == 8 || choice == 16) {
+                    valid = true;
+                } else {
+                    cout << "Невалиден номер. Моля въведете 2, 8, 10 или 16. \n";
+                }
+            } else {
+                cout << "Невалиден вход. Моля използвайте числови стойности!\n";
+            }
+        } else {
+            cout << "Невалиден вход. Моля използвайте числови стойности!\n";
         }
-        
-        if ((choice == 2 || choice == 8 || choice == 10 || choice == 16) && errorflag == 0)
-        {
-            break;
-        }
-        else if (errorflag == 0)
-            cout << "Невалиден избор. Моля опитайте отново (2, 8, 10 или 16): ";
-    } while (choice != 2 && choice != 8 && choice != 10 && choice != 16);
+    }
+    return 0;
 }
