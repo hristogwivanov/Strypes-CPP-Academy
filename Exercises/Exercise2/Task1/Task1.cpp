@@ -80,7 +80,7 @@ void convertHex(const string &numStr)
     int num;
     try
     {
-        num = stoi(numStr, nullptr, 16); // Parse numStr as base 16
+        num = stoi(numStr, nullptr, 16);
     }
     catch (const invalid_argument &)
     {
