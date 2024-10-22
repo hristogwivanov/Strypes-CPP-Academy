@@ -15,7 +15,7 @@
 
         data.input = num;
 
-        uint32_t sign = (data.bits >> 31) & 0x1;
+        uint32_t sign = (data.bits >> 31);
         uint32_t exponent = (data.bits >> 23) & 0xFF;
         uint32_t mantissa = data.bits & 0x7FFFFFF;
 
