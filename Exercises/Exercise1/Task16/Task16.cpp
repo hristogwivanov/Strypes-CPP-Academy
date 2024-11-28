@@ -1,7 +1,8 @@
 #include<iostream>
 using namespace std;
 int main(){
-    int n, buff, sum = 0;
+    int n;
+    float buff, sum = 0;
     cout << "Моля, въведете брой на въведените числа: ";
     cin >> n;
     for (int i = 1; i <= n; i++) {
